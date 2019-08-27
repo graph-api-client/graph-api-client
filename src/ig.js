@@ -25,8 +25,6 @@ class IG {
     }`;
     return true;
   }
-
-  getMedia;
 }
 
 module.exports = IG;
