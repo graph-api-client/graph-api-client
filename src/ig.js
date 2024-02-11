@@ -5,15 +5,18 @@ class IG {
     this.client_access_token = client_access_token;
     this.client_user_id = client_user_id;
   }
+
   async init(client_page_name) {
     const account = await axios.get(
       `${this.client_base_url + this.client_user_id}?${
         this.client_access_token
       }&fields=accounts`,
     );
+
     const page_id = account.data.accounts.data.find(
-      x => x.name === client_page_name,
+      (x) => x.name === client_page_name,
     ).id;
+
     const business_account = await axios.get(
       `${this.client_base_url + page_id}?${
         this.client_access_token
